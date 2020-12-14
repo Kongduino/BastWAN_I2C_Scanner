@@ -374,7 +374,7 @@ void loop() {
     } else {
       Serial.write('x');
     } Serial.write(' ');
-    if (addr > 0 && (addr + 1) % 16 == 0) {
+    if (addr > 0 && (addr + 1) % 16 == 0 && addr < 127) {
       Serial.write('\n');
       Serial.print(addr / 16 + 1);
       Serial.print(". |");
