@@ -369,8 +369,6 @@ void loop() {
       Serial.write('o');
       result[ix++] = addr;
       nDevices++;
-    } else if (error == 4) {
-      Serial.write('X');
     } else {
       Serial.write('x');
     } Serial.write(' ');
