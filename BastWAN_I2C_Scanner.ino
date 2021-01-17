@@ -358,7 +358,7 @@ void loop() {
   uint8_t nDevices, ix = 0;
   Serial.println("\nScanning...");
   nDevices = 0;
-  Serial.print("   |.0 .1 .2 .3 .4 .5 .6 .7 .8 .9 .A .B .C .D .E .F\n---------------------------------------------------\n0. | . ");
+  Serial.print("   |.0 .1 .2 .3 .4 .5 .6 .7 .8 .9 .A .B .C .D .E .F\n---------------------------------------------------\n0. | X ");
   for (addr = 1; addr < 128; addr++) {
     Wire.beginTransmission(addr);
     error = Wire.endTransmission();
@@ -366,11 +366,11 @@ void loop() {
     // error = Wire.endTransmission();
     Serial.write(' ');
     if (error == 0) {
-      Serial.write('o');
+      Serial.write('@');
       result[ix++] = addr;
       nDevices++;
     } else {
-      Serial.write('x');
+      Serial.write('.');
     } Serial.write(' ');
     if (addr > 0 && (addr + 1) % 16 == 0 && addr < 127) {
       Serial.write('\n');
